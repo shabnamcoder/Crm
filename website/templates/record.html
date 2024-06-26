@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}record Detail{% endblock %}
+{% block content %}
+<div class="card text-center">
+   <div class="card-header">
+     {{ customer_record.id }}
+   </div>
+   <div class="card-body">
+     <h5 class="card-title">{{ customer_record }}</h5>
+     <p class="card-text">{{ customer_record.address }}</p>
+     <a href="mailto:{{ customer_record.email }}" class="btn btn-primary">Send Email to customer </a>
+     <a href="tel:{{ customer_record.phone }}" class="btn btn-primary">call to customer </a>
+   </div>
+   <div class="card-footer text-body-secondary">
+     {{ customer_record.create_at }}
+   </div>
+ </div>
+
+ <a href="{% url 'delete_record' customer_record.id %}" class="btn btn-danger">Delete Record</a>
+ <a href="{% url 'update_record' customer_record.id %}" class="btn btn-outline-primary">Edit Record</a>
+{% endblock %}
